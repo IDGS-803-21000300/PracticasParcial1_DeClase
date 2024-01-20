@@ -1,0 +1,3 @@
+import Lista
+
+Lista.main()
