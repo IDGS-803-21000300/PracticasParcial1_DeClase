@@ -1,0 +1,67 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cinepolis</title>
+    <!-- <link rel="stylesheet" href="../../Formulario/static/css/bootstrap/bootstrap/css/bootstrap-responsive.css">
+    <link rel="stylesheet" href="../../Formulario/static/css/bootstrap/bootstrap/css/bootstrap.css"> 
+    <link href="/resources/css/style/cinepolis.css" rel="stylesheet"> -->
+</head>
+<body>
+
+<form action="/Procesar", method="post">
+
+    <div class="contenedorMain">
+        <div class="row">
+
+            <div class="col">
+
+            <h1>ENTRADAS</h1>
+
+            <input type="text" name="txtNombre" id="txtNombre" placeholder="NOMBRE">
+                <br>
+                
+            <input type="number" name="txtCantidadCompradores" id="txtCantidadCompradores" placeholder="Cantidad De Compradores">
+                <br>
+
+                <label for="">¿Cuentas con Cineco?</label>
+                <br>       
+            <div class="row">
+                <input type="radio" name="rbCinecoSi", id="rbCinecoSi"><label for="">Si</label>
+                <input type="radio" name="rbCinecoNo", id="rbCinecoNo"><label for="">No</label>
+            </div>
+                <br>
+            <input type="number" name="txtCantidadBoletos" id="txtCantidadBoletos" placeholder="Cantidad De Boletos">
+
+            </div>
+
+            <dov class="col">
+
+                <input type="number" name="txtCantidadPagar" id="txtCantidadPagar" placeholder="Cantidad A Pagar">
+
+            </dov>
+
+        </div>
+    <!-- termina el row -->
+
+        <div class="row">
+            <h1>Acciones</h1>
+
+                <br>
+            
+            <div class="row">
+                <input type="submit" name="btnProcesar" title="Procesar">
+                <button>Salir</button>
+            </div>
+
+        </div>
+
+    </div>
+
+</form>
+
+
+</body>
+</html>

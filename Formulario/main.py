@@ -6,6 +6,10 @@ app = Flask (__name__)
 def formulario():
     return render_template("formulario1.html")
 
+@app.route("/cinepolis")
+def cinepolis():
+    return render_template("cinepolis.html")
+
 @app.route("/resultado", methods = ["GET", "POST"])
 def suma():
     if request.method == "POST":
