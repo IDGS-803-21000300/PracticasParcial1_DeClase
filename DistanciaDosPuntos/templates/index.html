@@ -1,0 +1,16 @@
+
+{% extends 'containerMain.html' %}
+
+{% block content %}
+{% import "inputs.html" as macros %}
+    <h1>DISTANCIA DE DOS PUNTOS</h1>
+    <form action="" method="POST">
+        {{ macros.input_distancia(form.puntox1) }}
+        {{ macros.input_distancia(form.puntoy1) }}
+        {{ macros.input_distancia(form.puntox2) }}
+        {{ macros.input_distancia(form.puntoy2) }}
+        <input type="submit" value="calcular" name="btn1">
+    </form>
+
+    <h1>Distancia Calculada: {{ distancia }}</h1>
+{% endblock %}
