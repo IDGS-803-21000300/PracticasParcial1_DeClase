@@ -1,0 +1,44 @@
+
+
+{%macro tabla(titulos, valores)%}
+
+<style>
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 20px;
+    }
+
+    th, td {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: left;
+    }
+
+    th {
+        background-color: #f2f2f2;
+    }
+</style>
+
+<table>
+    <tr>
+        <th>{{titulos[0]}}</th>
+        <th>{{titulos[1]}}</th>
+        <th>{{titulos[2]}}</th>
+        <th>{{titulos[3]}}</th>
+        <th>{{titulos[4]}}</th>
+        <th>{{titulos[5]}}</th>
+        <th>{{titulos[6]}}</th>
+    </tr>
+    <tr>
+        <td style="background-color: {{valores[0]}};"></td>
+        <td style="background-color: {{valores[1]}};"></td>
+        <td style="background-color: {{valores[2]}};"></td>
+        <td style="background-color: {{valores[3]}};"></td>
+        <td>{{valores[4]}}</td>
+        <td>{{valores[5]}}</td>
+        <td>{{valores[6]}}</td>
+    </tr>
+</table>
+
+{%endmacro%}

@@ -1,0 +1,23 @@
+
+{% extends 'container.html' %}
+
+{% block content %}
+{% import "input.html" as macros %}
+{% import "table.html" as tabla %}
+    <h1>RESISTENCIAS</h1>
+    <form action="" method="POST">
+        {{ macros.inputSelected(form.tira1) }}
+        {{ macros.inputSelected(form.tira2) }}
+        {{ macros.inputSelected(form.tira3) }}
+        {{ macros.inputSelected(form.tolerancia) }}
+        <input type="submit" value="calcular" name="btn1">
+    </form>
+
+    {{ tabla.tabla(
+        ["COLOR1", "COLOR2", "COLOR3", "TOLERANCIA", "VALOR", "VALOR MAXIMO", "VALOR MINIMO"],
+        [colores[0], colores[1], colores[2], tolerancia, valor, minimo, maximo]
+    ) }}
+    
+
+    <!-- <h1>Distancia Calculada: {{ distancia }}</h1> -->
+{% endblock %}
