@@ -1,0 +1,32 @@
+{% extends 'containerMain.html' %}
+{% block content %}
+{% import "inputs.html" as macros %}
+
+    <h1>DICCIONARIO INGLÉS A ESPAÑOL</h1>
+
+     <!-- Sección para Guardar -->
+     <div style="float: left; width: 45%;">
+        <h2>Guardar Traducción</h2>
+        <form action="" method="POST", name="guardar">
+            {{ macros.input_distancia(form.palabraIngles) }}
+            {{ macros.input_distancia(form.palabraEspañol) }}
+            <input type="submit" value="Guardar" name="btnGuardar" class="btn btn-primary">
+        </form>
+    </div>
+
+    <!-- Sección para Buscar -->
+    <div style="float: right; width: 45%;">
+        <h2>Buscar Traducción</h2>
+        <form action="" method="POST", name="buscar">
+            {{ macros.input_distancia(form.palabraBusqueda) }}
+            {{ macros.radiobtn(form.escogerIdioma) }}
+            <input type="submit" value="Buscar" name="btnBuscar" class="btn btn-primary">
+        </form>
+        <h3>RESULTADO : {{ traduccion }}</h3>
+    </div>
+
+   
+
+    <div style="clear: both;"></div> <!-- Limpiar el float -->
+
+{% endblock %}

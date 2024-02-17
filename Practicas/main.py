@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request
 import math
-from clases import FormColors, form
+from clases import FormColors, form, FormDiccionario
+from io import open
 
 app = Flask (__name__)
 
@@ -134,6 +135,51 @@ def resistencias():
                                                             colores[int(banda3)]],
                            tolerancia=coloresT[int(tolerancia)], valor=valor, minimo=valorMinimo, maximo=valorMaximo
                            )
+
+@app.route("/diccionario", methods=["GET", "POST"])
+def diccionario():
+    diccionario = FormDiccionario.FormDiccionario(request.form)
+
+    palabraIngles = ""
+    palabraSpanish = ""
+    busqueda = ""
+    retorno = ""
+    idioma = ""
+
+    if request.method == "POST":
+        if "btnGuardar" in request.form:
+            palabraIngles = diccionario.palabraIngles.data
+            palabraSpanish = diccionario.palabraEspañol.data
+
+            file_texto = open('diccionario.txt', 'a')
+            file_texto.write('\n {}'.format(palabraSpanish))
+            file_texto.write(':{}'.format(palabraIngles))
+            file_texto.close()  # No olvides cerrar el archivo después de escribir
+
+        elif "btnBuscar" in request.form:
+            busqueda = diccionario.palabraBusqueda.data
+            idioma = diccionario.escogerIdioma.data
+
+            file_texto = open('diccionario.txt', 'r')
+
+            for lineas in file_texto.readlines():
+                if lineas.rfind(str(busqueda)) != -1:
+                    partes = lineas.split(':')
+                    if len(partes) == 2:
+                        if idioma == "ESPAÑOL":
+                            retorno = partes[0].strip()
+                        else:
+                            retorno = partes[1].strip()
+                else:
+                    retorno = "NO SE ENCONTRÓ LA PALABRA"
+
+            file_texto.close()  # Cierra el archivo después de leer
+
+    return render_template("diccionario.html", form=diccionario, traduccion=retorno)
+
+
+
+
 
 if __name__ == "__main__":
     app.run(debug = True, port=8089)
